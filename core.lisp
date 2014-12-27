@@ -9,7 +9,7 @@
   (with-html-output-to-string (s)
     (:html
      (:center
-      (:h1 "Helloow world from wookie")))))
+      (:h1 "Helloow world from restas")))))
 
 (define-route hello ("")
   (homepage))
