@@ -1,11 +1,9 @@
-(ql:quickload (list "wookie" "cl-who"))
+(ql:quickload (list "restas" "cl-who"))
 
-(defpackage :hello-world
-  (:use :cl :wookie :who))
+(restas:define-module #:hello-world
+  (:use :cl :restas :who))
 
 (in-package :hello-world)
-
-(load-plugins)
 
 (defun homepage ()
   (with-html-output-to-string (s)
@@ -13,13 +11,9 @@
      (:center
       (:h1 "Helloow world from wookie")))))
 
-(defroute (:get "/") (req res)
-  (send-response
-   res
-   :body
-   (homepage)))
+(define-route hello ("")
+  (homepage))
 
-(as:with-event-loop ()
-  (start-server (make-instance 'listener :port 3000)))
+(start '#:hello-world :port 3000)
 
 
