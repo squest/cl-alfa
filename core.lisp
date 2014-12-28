@@ -68,4 +68,5 @@
   (progn (disconnect)
 	 (stop-all)))
 
-(run 3000)
+(progn (sleep 20)
+       (run 3000))
