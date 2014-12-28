@@ -67,3 +67,5 @@
 (defun stop ()
   (progn (disconnect)
 	 (stop-all)))
+
+(run 3000)
